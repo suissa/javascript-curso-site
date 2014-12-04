@@ -1,0 +1,13 @@
+@import 'jeet'
+
+edit()
+
+section
+  center(800px)
+div
+  margin-top: 5px
+  margin-bottom: 5px
+  +above(600px) // tablet
+    col(1/3, cycle: 3)
+  +above(800px) // desktop
+    col(1/5, uncycle: 3, cycle: 5)
