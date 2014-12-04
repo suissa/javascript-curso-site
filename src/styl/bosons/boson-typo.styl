@@ -1,0 +1,43 @@
+$font-default = 'Myriad Pro, Sans serif'
+$font-bold = 'normal'
+$font-size-base = 62.5%
+
+set-font-size(value) {
+    font-size: value; /* add PX (or original value) as backup */
+
+    if (value is inherit) {
+        /* do nothing, "inherit" has no unit */
+    } else {
+        font-size: remify(value);
+    }
+}
+
+remify(value) { /* separate mixin, so it can be used elsewhere */
+    u = unit(value);
+
+    if (u is 'px') {
+        return unit(value/16, 'rem');
+    } else {
+        return unit(value, u);
+    }
+}
+
+/*
+retirado de: http://davidwalsh.name/stylus-rem
+
+Outro conteúdo interessante: http://css-tricks.com/rems-ems/
+*/
+
+/*
+.smaller {
+  set-font-size(13px);
+}
+
+  yields:
+
+  .smaller {
+    font-size: 13px;
+    font-size: .8125rem;
+  }
+
+*/
