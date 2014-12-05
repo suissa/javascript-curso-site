@@ -259,6 +259,8 @@ No final das contas irá diminuir nosso código porém há um problema ainda com
 
 Como a qual o [Diogo Moretti](https://github.com/diogomoretti/) fez no [grider](https://github.com/diogomoretti/grider) que gerou o mesmo grid para cada `media query`.
 
+[Esse artigo que fala do mesmo tema porém com SASS também é uma ideia interessante e mais aprimorada](http://www.sitepoint.com/cross-media-query-extend-sass/).
+
 Vamos usar uma forma um pouco diferente e mais simples, iremos definir as medias no nosso *placeholder* e re-usá-las no nosso átomo, como visto abaixo:
 
 ```
@@ -292,7 +294,10 @@ $atom-img
     @extend $atom-img
 ```
 
+O resultado é esse (adicionei um fundo pois o logo tem muito branco):
 
+![Imagem com tela maior de 400px](https://cldup.com/6C8a9Hu_RP.png)
+![Imagem com tela menor de 400px](https://cldup.com/boepXEqPW1.png)
 
 
 
