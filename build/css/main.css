@@ -196,6 +196,12 @@ td,
 th {
   padding: 0;
 }
+.atom-link-menu {
+  text-align: left;
+  text-decoration: none;
+  font-size: 1em;
+  color: #6ed5a2;
+}
 .atom-logo-header {
   -webkit-border-image: 0;
   -o-border-image: 0;
@@ -221,6 +227,13 @@ th {
   .atom-logo-header {
     width: 244px;
   }
+}
+.atom-link-menu {
+  text-transform: uppercase;
+  color: #fff;
+}
+.molecule-menu-header {
+  list-style: none;
 }
 body {
   background-color: #4161af;

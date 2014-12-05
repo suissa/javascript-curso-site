@@ -325,6 +325,27 @@ Infelizmente esse código duplica nosso CSS, porém infelizmente para re-usar um
 }
 ```
 
+Pronto agora vamos estilizar nosso componente de menu, inicialmente estilizamos apenas os `li's`, pois o `ul` é uma molécula que irá agregar 1 ou mais átomos, podendo esses ser qualquer coisa. Ex.: link, texto, imagem, vídeo, etc.
+
+```
+.atom-link-menu
+  @extend $boson-link
+  text-transform: uppercase
+  color: $branco
+```
+
+Percebeu que extendemos o placeholder do `boson-link`? Pois ele será base para outros links assim como `atom-img` é para as imagens, iremos refatorar futuramente.
+
+Ele está definido em `bosons/boson-typo`:
+
+```
+$atom-link
+  text-align: left
+  text-decoration: none
+  font-size: 1em
+  color: $verde-claro
+```
+
 
 
 ## Getting Started
