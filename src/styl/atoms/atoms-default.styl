@@ -7,21 +7,18 @@ $atom-img
   padding: 0
   display: inline-block
   max-width: 100%
-  // no mobile a imagem é centralizada
-  @media (max-width: 400px)
-    display block
-    margin 0 auto
+  margin-left: 20px
+  width: 80%
+  // tamanho padrão p/ telas acima do mobile
+  @media (min-width: 600px)
+    width: 200px
+  @media (min-width: 800px)
+    width: 200px
 
 // configurações específicas do logo
 .atom-logo-header
   @extend $atom-img
-  // para não ficar sem imagem caso o href não seja passado
-  background-image: url('../img/logo-header.png')
-  background-repeat: none
-  // tamanho fixo da imagem
-  // mesmo em telas maiores ele se mantém
-  width: 244px
-  height: 103px
+  width: 40%
   @media (min-width: 600px)
     @extend $atom-img
   @media (min-width: 800px)

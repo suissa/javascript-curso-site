@@ -204,19 +204,23 @@ th {
   padding: 0;
   display: inline-block;
   max-width: 100%;
+  margin-left: 20px;
+  width: 80%;
 }
-@media (max-width: 400px) {
+@media (min-width: 600px) {
   .atom-logo-header,
 .atom-logo-header {
-    display: block;
-    margin: 0 auto;
+    width: 200px;
+  }
+}
+@media (min-width: 800px) {
+  .atom-logo-header,
+.atom-logo-header {
+    width: 200px;
   }
 }
 .atom-logo-header {
-  background-image: url("../img/logo-header.png");
-  background-repeat: none;
-  width: 244px;
-  height: 103px;
+  width: 40%;
 }
 body {
   background-color: #4161af;

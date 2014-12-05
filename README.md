@@ -273,10 +273,9 @@ $atom-img
   padding: 0
   display: inline-block
   max-width: 100%
-  // no mobile a imagem é centralizada
+  // no mobile a imagem ganha margin
   @media (max-width: 400px)
-    display block
-    margin 0 auto
+    margin-left 20px
 
 // configurações específicas do logo
 .atom-logo-header
@@ -297,7 +296,7 @@ $atom-img
 O resultado é esse (adicionei um fundo pois o logo tem muito branco):
 
 ![Imagem com tela maior de 400px](https://cldup.com/6C8a9Hu_RP.png)
-![Imagem com tela menor de 400px](https://cldup.com/boepXEqPW1.png)
+![Imagem com tela menor de 400px](https://cldup.com/tK-ghHAoH6.png)
 
 
 
