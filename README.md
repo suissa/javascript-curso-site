@@ -142,6 +142,159 @@ Vira:
 
 Outro caso interessante de se notar que como usamos REM para fazer nossas fonts diminuírem ou aumentarem dependendo da responsividade, podemos apenas setar o valor da font na tag HTML que é a root de todas e é de onde o REM deriva seu valor, como visto [nesse artigo](http://css-tricks.com/rems-ems/)
 
+**BREAK IN**
+
+Antes de iniciarmos vamos utilizar o normalize para podermos iniciar nosso visual igual em todos navegadores. Para isso o temos o [reset.styl](https://www.npmjs.org/package/reset.styl) lembrando que o Stylus eh JAVASCRIPT <3
+
+```
+npm install reset.styl
+```
+
+E para usarmos:
+
+```
+use_reset('normalize')
+```
+
+**BREAK OUT**
+
+Agora vamos iniciar criando os estilos para nossos atomos, lembrando que eles precisam ser responsíveis, nosso padrão será o mobile-first. Então vamos criar as variáveis de tamanho em `bosons/boson-responsive.styl`
+
+```
+$tablet-size = '768px'
+$desktop = '1000px'
+```
+
+Mas nossa responsividade será feita com o [Rupture](http://jenius.github.io/rupture/), bora instalar:
+
+```
+npm install rupture
+```
+
+###Iniciando
+
+Vamos iniciar o desenvolvimento visual a partir dos componentes, então vamos começar pelo `header` que será um organismo pois agregará átomos e moléculas.
+
+```
+header
+  img.atom-logo-header( src='logo-header.png', 
+                        alt='Logo da empresa Webschool', 
+                        aria-label='Logo da empresa Webschool')
+  ul.molecule-menu-header
+    li.atom-link-menu menu 1
+    li.atom-link-menu menu 1
+    li.atom-link-menu menu 1
+
+  button.atom-matricule-se-small matricule-se
+```
+
+Para criarmos o `atom-logo-header` precisamos inicialmente criar o átomo padrão das imagens, `.atom-img` e posteriormente o `.atom-img-logo`:
+
+```
+// configurações básicas
+// usando placeholder para 
+// não criar uma classe a mais
+$atom-img
+  border-image 0
+  margin 0
+  padding 0
+  display inline-block
+
+// configurações específicas do logo
+.atom-logo-header
+  @extend $atom-img
+  // para não ficar sem imagem caso o href não seja passado
+  background-image url('../img/logo-header.png')
+  // tamanho fixo da imagem
+  // mesmo em telas maiores ele se mantém
+  width 244
+  height 103
+```
+
+####Placeholder
+
+Utilizo o *placeholder* pois ele só gerará o código quando extendido, sem precisar criar uma classe antes para extender.
+
+Por exemplo:
+
+```
+$bold
+  font-weight bold
+
+.title
+  @extend $bold
+
+```
+
+Vai gerar:
+
+```
+.title{
+  font-weight: bold;
+}
+```
+
+Enquanto que usando classe fica:
+
+```
+.bold
+  font-weight bold
+
+.title
+  @extend $bold
+
+```
+
+
+Que gera:
+
+```
+.bold,
+.title{
+  font-weight: bold;
+}
+```
+
+No final das contas irá diminuir nosso código porém há um problema ainda com os pré-processadores onde você não pode re-utilizar um *placeholder* em uma `media query` que foi criado fora dela, mas para isso existem algumas *alternativas*.
+
+Como a qual o [Diogo Moretti](https://github.com/diogomoretti/) fez no [grider](https://github.com/diogomoretti/grider) que gerou o mesmo grid para cada `media query`.
+
+Vamos usar uma forma um pouco diferente e mais simples, iremos definir as medias no nosso *placeholder* e re-usá-las no nosso átomo, como visto abaixo:
+
+```
+// configurações básicas
+// usando placeholder para 
+// não criar uma classe a mais
+$atom-img
+  border-image: 10px
+  margin: 0
+  padding: 0
+  display: inline-block
+  max-width: 100%
+  // no mobile a imagem é centralizada
+  @media (max-width: 400px)
+    display block
+    margin 0 auto
+
+// configurações específicas do logo
+.atom-logo-header
+  @extend $atom-img
+  // para não ficar sem imagem caso o href não seja passado
+  background-image: url('../img/logo-header.png')
+  background-repeat: none
+  // tamanho fixo da imagem
+  // mesmo em telas maiores ele se mantém
+  width: 244px
+  height: 103px
+  @media (min-width: 600px)
+    @extend $atom-img
+  @media (min-width: 800px)
+    @extend $atom-img
+```
+
+
+
+
 
 ## Getting Started
 

@@ -1,30 +1,52 @@
-.atom-img
-.atom-img-logo
+// configurações básicas
+// usando placeholder para 
+// não criar uma classe a mais
+$atom-img
+  border-image: 10px
+  margin: 0
+  padding: 0
+  display: inline-block
+  max-width: 100%
+  // no mobile a imagem é centralizada
+  @media (max-width: 400px)
+    display block
+    margin 0 auto
 
-.atom-img-logo-small
-.atom-img-logo-medium
-.atom-img-logo-large
-.atom-img-professor-avatar
+// configurações específicas do logo
+.atom-logo-header
+  @extend $atom-img
+  // para não ficar sem imagem caso o href não seja passado
+  background-image: url('../img/logo-header.png')
+  background-repeat: none
+  // tamanho fixo da imagem
+  // mesmo em telas maiores ele se mantém
+  width: 244px
+  height: 103px
+  @media (min-width: 600px)
+    @extend $atom-img
+  @media (min-width: 800px)
+    @extend $atom-img
 
-.atom-input
-.atom-input-email
+// .atom-img-professor-avatar
 
-.atom-button
-.atom-button-matricule-se
+// .atom-input
+// .atom-input-email
 
-.atom-button-matricule-se-small
-.atom-button-matricule-se-medium
-.atom-button-matricule-se-large
+// .atom-button
+// .atom-button-matricule-se
 
-.atom-title
-.atom-title-primary
-.atom-title-secondary
-.atom-title-section
+// .atom-button-matricule-se-small
+// .atom-button-matricule-se-medium
+// .atom-button-matricule-se-large
 
-.atom-link
-.atom-link-menu
+// .atom-title
+// .atom-title-primary
+// .atom-title-secondary
+// .atom-title-section
 
-.atom-text
-.atom-text-cursos
-.atom-text-professor-resumo
+// .atom-link
+// .atom-link-menu
 
+// .atom-text
+// .atom-text-cursos
+// .atom-text-professor-resumo

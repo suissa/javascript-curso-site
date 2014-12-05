@@ -196,25 +196,28 @@ td,
 th {
   padding: 0;
 }
-.atom-img,
-.atom-img-logo,
-.atom-img-logo-small,
-.atom-img-logo-medium,
-.atom-img-logo-large,
-.atom-input,
-.atom-input-email,
-.atom-button,
-.atom-button-matricule-se,
-.atom-button-matricule-se-small {
-  background-color: #eb0000;
+.atom-logo-header {
+  -webkit-border-image: 10px;
+  -o-border-image: 10px;
+     border-image: 10px;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  max-width: 100%;
 }
-.atom-button-matricule-se-medium,
-.atom-button-matricule-se-large,
-.atom-title,
-.atom-title-primary,
-.atom-title-secondary,
-.atom-title-section,
-.atom-link,
-.atom-link-menu {
-  font-size: 1em;
+@media (max-width: 400px) {
+  .atom-logo-header,
+.atom-logo-header {
+    display: block;
+    margin: 0 auto;
+  }
+}
+.atom-logo-header {
+  background-image: url("../img/logo-header.png");
+  background-repeat: none;
+  width: 244px;
+  height: 103px;
+}
+body {
+  background-color: #4161af;
 }
