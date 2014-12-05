@@ -197,14 +197,15 @@ th {
   padding: 0;
 }
 .atom-logo-header {
-  -webkit-border-image: 10px;
-  -o-border-image: 10px;
-     border-image: 10px;
-  margin: 0;
+  -webkit-border-image: 0;
+  -o-border-image: 0;
+     border-image: 0;
+  margin: 0 auto;
   padding: 0;
-  display: inline-block;
+  display: block;
   max-width: 100%;
   margin-left: 20px;
+  margin-top: 8px;
   width: 80%;
 }
 @media (min-width: 600px) {
@@ -213,14 +214,13 @@ th {
     width: 200px;
   }
 }
-@media (min-width: 800px) {
-  .atom-logo-header,
-.atom-logo-header {
-    width: 200px;
-  }
-}
 .atom-logo-header {
   width: 40%;
+}
+@media (min-width: 600px) {
+  .atom-logo-header {
+    width: 244px;
+  }
 }
 body {
   background-color: #4161af;

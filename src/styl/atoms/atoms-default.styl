@@ -1,29 +1,29 @@
+
 // configurações básicas
 // usando placeholder para 
 // não criar uma classe a mais
 $atom-img
-  border-image: 10px
-  margin: 0
+  border-image: 0
+  margin: 0 auto
   padding: 0
-  display: inline-block
+  display: block
   max-width: 100%
   margin-left: 20px
+  margin-top: 8px
   width: 80%
   // tamanho padrão p/ telas acima do mobile
   @media (min-width: 600px)
     width: 200px
-  @media (min-width: 800px)
-    width: 200px
 
 // configurações específicas do logo
+atom-logo-header-medias()
+ @media (min-width: 600px)
+   width: 244px
+
 .atom-logo-header
+  atom-logo-header-medias()
   @extend $atom-img
   width: 40%
-  @media (min-width: 600px)
-    @extend $atom-img
-  @media (min-width: 800px)
-    @extend $atom-img
-
 // .atom-img-professor-avatar
 
 // .atom-input

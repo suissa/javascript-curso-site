@@ -261,42 +261,69 @@ Como a qual o [Diogo Moretti](https://github.com/diogomoretti/) fez no [grider](
 
 [Esse artigo que fala do mesmo tema porém com SASS também é uma ideia interessante e mais aprimorada](http://www.sitepoint.com/cross-media-query-extend-sass/).
 
-Vamos usar uma forma um pouco diferente e mais simples, iremos definir as medias no nosso *placeholder* e re-usá-las no nosso átomo, como visto abaixo:
+Vamos usar uma forma um pouco diferente e mais simples, ideia dada pelo [Fernando Daciuk](https://github.com/fdaciuk), iremos definir as medias em um *mixin* e re-usá-las no nosso átomo, como visto abaixo:
 
 ```
-// configurações básicas
-// usando placeholder para 
-// não criar uma classe a mais
 $atom-img
-  border-image: 10px
-  margin: 0
+  border-image: 0
+  margin: 0 auto
   padding: 0
-  display: inline-block
+  display: block
   max-width: 100%
-  // no mobile a imagem ganha margin
-  @media (max-width: 400px)
-    margin-left 20px
+  margin-left: 20px
+  margin-top: 8px
+  width: 80%
+  // tamanho padrão p/ telas acima do mobile
+  @media (min-width: 600px)
+    width: 200px
 
 // configurações específicas do logo
+atom-logo-header-medias()
+ @media (min-width: 600px)
+   width: 244px
+
 .atom-logo-header
+  atom-logo-header-medias()
   @extend $atom-img
-  // para não ficar sem imagem caso o href não seja passado
-  background-image: url('../img/logo-header.png')
-  background-repeat: none
-  // tamanho fixo da imagem
-  // mesmo em telas maiores ele se mantém
-  width: 244px
-  height: 103px
-  @media (min-width: 600px)
-    @extend $atom-img
-  @media (min-width: 800px)
-    @extend $atom-img
+  width: 40%
 ```
 
-O resultado é esse (adicionei um fundo pois o logo tem muito branco):
+O resultado é esse:
 
-![Imagem com tela maior de 400px](https://cldup.com/6C8a9Hu_RP.png)
-![Imagem com tela menor de 400px](https://cldup.com/tK-ghHAoH6.png)
+![Imagem com tela maior de 600px](https://cldup.com/cqzTGhvlbd.png)
+![Imagem com tela menor de 600px](https://cldup.com/hq2QlSU53W.png)
+*\*adicionei um fundo pois o logo tem muito branco*
+
+Infelizmente esse código duplica nosso CSS, porém infelizmente para re-usar um código em uma media query você precisa definir ele dentro dela. Existem formas melhores de fazer isso, quando refatoraremos essa parte.
+
+```
+.atom-logo-header {
+  -webkit-border-image: 0;
+  -o-border-image: 0;
+     border-image: 0;
+  margin: 0 auto;
+  padding: 0;
+  display: block;
+  max-width: 100%;
+  margin-left: 20px;
+  margin-top: 8px;
+  width: 80%;
+}
+@media (min-width: 600px) {
+  .atom-logo-header,
+  .atom-logo-header {
+    width: 200px;
+  }
+}
+.atom-logo-header {
+  width: 40%;
+}
+@media (min-width: 600px) {
+  .atom-logo-header {
+    width: 244px;
+  }
+}
+```
 
 
 
