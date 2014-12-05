@@ -1,2 +1,18 @@
 .molecule-menu-header
   list-style: none
+  display: inline-block
+  float: right
+  margin-right: 0.1em
+
+.molecule-menu
+  max-width: 40%
+  display: inline-block
+  float: right
+  .molecule-menu-header
+    max-height: 0;
+    overflow: hidden;
+  .atom-item-menu
+    visibility: hidden;
+    display: block;
+    padding: 0.5em 0.6em;
+    border: none;

@@ -222,18 +222,61 @@ th {
 }
 .atom-logo-header {
   width: 40%;
+  display: inline-block;
+  float: left;
 }
 @media (min-width: 600px) {
   .atom-logo-header {
     width: 244px;
   }
 }
+.atom-menu-handle {
+  background: url("../img/icon-png2x.png") no-repeat top right;
+  clear: both;
+  cursor: pointer;
+  display: inline-block;
+  float: right;
+  margin: 0.6rem 0.6rem 0 0;
+  width: 36px;
+  height: 24px;
+  position: relative;
+}
+.atom-menu-checkbox {
+  display: none;
+}
+.atom-menu-checkbox:checked + .molecule-menu .molecule-menu-header {
+  max-height: 300px;
+}
+.atom-menu-checkbox:checked + .molecule-menu .atom-item-menu {
+  visibility: visible;
+}
+.atom-item-menu {
+  text-align: right;
+}
 .atom-link-menu {
-  text-transform: uppercase;
   color: #fff;
+  text-transform: uppercase;
 }
 .molecule-menu-header {
   list-style: none;
+  display: inline-block;
+  float: right;
+  margin-right: 0.1em;
+}
+.molecule-menu {
+  max-width: 40%;
+  display: inline-block;
+  float: right;
+}
+.molecule-menu .molecule-menu-header {
+  max-height: 0;
+  overflow: hidden;
+}
+.molecule-menu .atom-item-menu {
+  visibility: hidden;
+  display: block;
+  padding: 0.5em 0.6em;
+  border: none;
 }
 body {
   background-color: #4161af;

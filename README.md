@@ -171,7 +171,9 @@ Mas nossa responsividade será feita com o [Rupture](http://jenius.github.io/rup
 npm install rupture
 ```
 
-###Iniciando
+##Iniciando
+
+###Header
 
 Vamos iniciar o desenvolvimento visual a partir dos componentes, então vamos começar pelo `header` que será um organismo pois agregará átomos e moléculas.
 
@@ -325,6 +327,7 @@ Infelizmente esse código duplica nosso CSS, porém infelizmente para re-usar um
 }
 ```
 
+####Menu
 Pronto agora vamos estilizar nosso componente de menu, inicialmente estilizamos apenas os `li's`, pois o `ul` é uma molécula que irá agregar 1 ou mais átomos, podendo esses ser qualquer coisa. Ex.: link, texto, imagem, vídeo, etc.
 
 ```
@@ -347,6 +350,154 @@ $atom-link
 ```
 
 
+Como estamos desevolvendo orientado a componentes vamos estilizar nossa molécula do menu para que ele se pareça com um menu mobile. Criamos o arquivo `molecules/index` pois ele será o único a ser importado no `main`, precisamos refatorar o de átomos também para que fique mais simples de gerenciar e manter.
+
+```
+.molecule-menu-header
+  list-style: none
+  display: inline-block
+  float: right
+  margin-right: 0.6em
+```
+
+Como estamos fazendo **mobile-first** vamos ter que criar um menu escondido e mostrar apenas aquele ícone que todos conhecem das 3 listras horizontais.
+
+```
+.atom-link-menu-icon
+  background: url('../img/icon-png2x.png') no-repeat top center
+  color: transparent
+  display: block
+  text-align: center
+  text-indent: 99999px
+  width: 2em
+  height: 2em
+  a
+    span
+      display: none
+```
+
+E nossa `view` ficará:
+
+```
+ul.molecule-menu-header
+  li.atom-link-menu-icon
+    a(href='#')
+      img(src='img/icon-png2x.png', alt='Clique para abrir o menu')
+  li
+    a.atom-link-menu(href='#') menuu
+  li
+    a.atom-link-menu(href='#') menu
+  li
+    a.atom-link-menu(href='#') menu
+  li
+    a.atom-link-menu(href='#') menu
+```
+
+![Imagem demonstrando como o menu está com o ícone](https://cldup.com/Yr2L05qyRN.png)
+
+
+Porém ainda estamos mostrando a listagem abaixo, vamos refatorar e chegar na usabilidade já conhecida dos menus mobile.
+
+Para isso vamos iniciar utilizando uma técnica onde criamos um `checkbox` invisível e adicionamos um `label` com o ícone do menu, quando esse label é clickado ou tocado nosso CSS irá fazer a lista do menu aparecer.
+
+Vamos começar pela estrutura do nosso menu:
+
+```
+input(type="checkbox",
+      id="atom-menu-checkbox",
+      class="atom-menu-checkbox")
+nav.molecule-menu
+  label(for="atom-menu-checkbox",
+      class="atom-menu-handle")
+  ul.molecule-menu-header
+    li.atom-item-menu
+      a.atom-link-menu(href='#') menuu
+    li.atom-item-menu
+      a.atom-link-menu(href='#') menu
+    li.atom-item-menu
+      a.atom-link-menu(href='#') menu
+    li.atom-item-menu
+      a.atom-link-menu(href='#') menu
+    li.atom-item-menu
+      button.atom-matricule-se-small matricule-se
+```
+
+Percebeu que o `input` está fora?
+
+É para termos acesso a ele quando o menu estiver escondido. Então vamos estilizar nosso `label` e esconder o `checkbox`:
+
+```
+.atom-menu-handle
+  background: url('../img/icon-png2x.png') no-repeat top right
+  clear: both
+  cursor: pointer
+  display: inline-block;
+  float: right
+  margin: 0.6rem 0.6rem 0 0
+  width: 36px
+  height: 24px
+  position: relative
+
+.atom-menu-checkbox
+    display: none;
+```
+
+*O melhor seria usar um ícone em SVG :x*
+
+E agora vamos criar a regra quando o usuário clickar/tocar no ícone para mostrar a lista do menu:
+
+```
+.atom-menu-checkbox:checked + .molecule-menu
+  .molecule-menu-header
+    max-height: 300px;
+  .atom-item-menu
+    visibility: visible;
+```
+
+Bem simples não? Técnica malandra mas não acho que seja gambiarra :p
+
+![Foto de uma gambiarra real em um motor](https://atitudereflexiva.files.wordpress.com/2010/02/gambiarra_motor.jpg)
+
+Antes de prosseguirmos vamos adicionar uma pitada de **acessibilidade** no nosso menu:
+
+```
+header(role="navigation" aria-label="Menu Principal")
+  img.atom-logo-header( src='img/logo-header.png',
+                        alt='Logo da empresa Webschool',
+                        aria-label='Logo da empresa Webschool')
+
+  input(type='checkbox',
+        id='atom-menu-checkbox',
+        class='atom-menu-checkbox')
+  nav.molecule-menu(role='menu')
+    label(for='atom-menu-checkbox',
+          class='atom-menu-handle',
+          role='menuitem',
+          tabindex='0',
+          aria-haspopup='true')
+    ul.molecule-menu-header(role='menubar', 
+                            aria-hidden='true')
+      li.atom-item-menu(role='menuitem',
+                        tabindex='-1')
+        a.atom-link-menu(href='#') menuu
+      li.atom-item-menu(role='menuitem',
+                        tabindex='-1')
+        a.atom-link-menu(href='#') menu
+      li.atom-item-menu(role='menuitem',
+                        tabindex='-1')
+        a.atom-link-menu(href='#') menu
+      li.atom-item-menu(role='menuitem',
+                        tabindex='-1')
+        a.atom-link-menu(href='#') menu
+      li.atom-item-menu(role='menuitem',
+                        tabindex='-1')
+        button.atom-matricule-se-small matricule-se
+```
+
+Como não sou manjador quando em proporem melhorias eu atualizo aqui.
+
+![Tela mostrando apenas o ícone e o menu escondido](https://cldup.com/thsEp8hnKu.png)
+![Tela mostrando o ícone e o menu visível](https://cldup.com/b_PJj5QWvl.png)
 
 ## Getting Started
 

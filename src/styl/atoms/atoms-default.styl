@@ -24,13 +24,37 @@ atom-logo-header-medias()
   atom-logo-header-medias()
   @extend $atom-img
   width: 40%
+  display: inline-block
+  float: left
 
+// Menu
+.atom-menu-handle
+  background: url('../img/icon-png2x.png') no-repeat top right
+  clear: both
+  cursor: pointer
+  display: inline-block;
+  float: right
+  margin: 0.6rem 0.6rem 0 0
+  width: 36px
+  height: 24px
+  position: relative
 
+.atom-menu-checkbox
+    display: none;
+
+.atom-menu-checkbox:checked + .molecule-menu
+  .molecule-menu-header
+    max-height: 300px;
+  .atom-item-menu
+    visibility: visible;
+
+.atom-item-menu
+  text-align: right
 
 .atom-link-menu
   @extend $atom-link
+  color: #fff
   text-transform: uppercase
-  color: $branco
 
 // .atom-img-professor-avatar
 
