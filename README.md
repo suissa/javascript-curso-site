@@ -161,11 +161,11 @@ use_reset('normalize')
 Agora vamos iniciar criando os estilos para nossos atomos, lembrando que eles precisam ser responsíveis, nosso padrão será o mobile-first. Então vamos criar as variáveis de tamanho em `bosons/boson-responsive.styl`
 
 ```
-$tablet-size = '768px'
-$desktop = '1000px'
+$tablet-size = 768px
+$desktop-size = 1000px
 ```
 
-Mas nossa responsividade será feita com o [Rupture](http://jenius.github.io/rupture/), bora instalar:
+Mas depois nossa responsividade será feita com o [Rupture](http://jenius.github.io/rupture/), bora instalar:
 
 ```
 npm install rupture
@@ -684,6 +684,9 @@ E o `bosons/index` fica:
 @import "bosons/boson-typo"
 ```
 
+Também precisamos arrumar nossos valores das *media queries*
+
+
 Pronto agora podemos continuar.
 
 ![Homer feliz porque podemos continuar](http://perlbal.hi-pi.com/blog-images/410584/gd/134662167782/Ufa.jpg)
@@ -694,7 +697,47 @@ Pronto agora podemos continuar.
 
 Vamos criar seus átomos.
 
+```
+border-radius()
+  -webkit-border-radius arguments
+  -moz-border-radius arguments
+  border-radius arguments
 
+$atom-button
+  max-width: 100%
+  border: 0
+  border-radius 5px
+$atom-button-matricule-se
+  @extend $atom-button
+  background-color: $verde-claro
+  color: $branco
+  font-size: 0.70rem
+  font-weight: 600
+  text-transform: uppercase
+  letter-spacing: 0.0625*2rem
+  padding-top: 6px
+.atom-button-matricule-se-small
+  @extend $atom-button-matricule-se
+  width: 138px
+  height: 42px
+// .atom-button-matricule-se-medium
+// .atom-button-matricule-se-large
+```
+
+Esse *mixin* transparente `border-radius` é o primeiro exemplo dado no próprio site do [Stylus](http://learnboost.github.io/stylus/)!
+
+Adicionamos a chamada do nosso módulo em `atoms-default`
+
+```
+@import 'atoms/atoms-img'
+@import 'atoms/atoms-menu'
+@import 'atoms/atoms-button'
+```
+
+
+![Botão matricule-se no menu mobile](https://cldup.com/0vFfEesAAD.png)
+![Botão matricule-se no menu tablet](https://cldup.com/Ef2d5xhDQK.png)
+![Botão matricule-se no menu desktop](https://cldup.com/nvHsQuS-rV.png)
 
 
 ## Getting Started

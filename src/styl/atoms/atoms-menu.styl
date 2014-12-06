@@ -8,7 +8,7 @@
   width: 36px
   height: 24px
   position: relative
-  @media (min-width: 1000px)
+  @media (min-width: $desktop-size)
     display: none
 
 .atom-menu-checkbox
@@ -16,7 +16,7 @@
 
 .atom-menu-checkbox + .molecule-menu
   .atom-item-menu
-    @media (min-width: 1000px)
+    @media (min-width: $desktop-size)
       display: inline
       visibility: visible
 
@@ -37,9 +37,9 @@
   text-transform: uppercase
   font-size: 0.8rem
   // font maior para o tablet por causa do espaço
-  @media (min-width: 800px)
+  @media (min-width: $tablet-size)
     font-size: 1.1rem
     // font menor para o desktop para deixar horizontal
-  @media (min-width: 1000px)
+  @media (min-width: $desktop-size)
     font-size: 0.75rem
     letter-spacing: 0.0625*2rem

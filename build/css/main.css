@@ -269,7 +269,7 @@ th {
   text-transform: uppercase;
   font-size: 0.8rem;
 }
-@media (min-width: 800px) {
+@media (min-width: 768px) {
   .atom-link-menu {
     font-size: 1.1rem;
   }
@@ -279,6 +279,24 @@ th {
     font-size: 0.75rem;
     letter-spacing: 0.125rem;
   }
+}
+.atom-button-matricule-se-small {
+  max-width: 100%;
+  border: 0;
+  border-radius: 5px;
+}
+.atom-button-matricule-se-small {
+  background-color: #6ed5a2;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.125rem;
+  padding-top: 6px;
+}
+.atom-button-matricule-se-small {
+  width: 138px;
+  height: 42px;
 }
 .molecule-menu-header {
   list-style: none;
