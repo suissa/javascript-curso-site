@@ -322,16 +322,6 @@ html {
     min-height: 30rem;
   }
 }
-@media (min-width: 1000px) {
-  .atom-video-chamada-curso,
-.atom-video-chamada-curso {
-    min-height: 340px;
-    width: 550px;
-    margin: 0 auto;
-    position: relative;
-    top: 40px;
-  }
-}
 .molecule-menu-header {
   list-style: none;
   display: inline-block;
@@ -368,6 +358,13 @@ html {
   .molecule-video-chamada {
     background: url("../img/video-mac-bg.png") no-repeat top center;
     height: 500px;
+  }
+  .molecule-video-chamada .atom-video-chamada-curso {
+    min-height: 340px;
+    width: 550px;
+    margin: 0 auto;
+    position: relative;
+    top: 40px;
   }
 }
 body {

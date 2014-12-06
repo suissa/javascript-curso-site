@@ -851,6 +851,27 @@ E precisamos adicionar o fundo na nossa `section` para que o vídeo fique inseri
 
 ![Tela mostrando o vídeo inserido em um notebook quando estiver no desktop](https://cldup.com/6zcl__9v9y.png)
 
+Legal porém nós estamos adicionando regras específicas para o vídeo, porém elas só serão usadas na seção da chamada do curso, logo eu vou passar essas regras para modificar esse átomo apenas nesse contexto. Bom vamos ao código que ficará mais fácil de entender:
+
+```
+.molecule-video-chamada
+  @media (min-width: $desktop-size)
+    background: url('../img/video-mac-bg.png') no-repeat top center
+    height: 500px
+    .atom-video-chamada-curso
+      min-height: 340px
+      width: 550px
+      margin: 0 auto
+      position: relative
+      top: 40px
+```
+
+Nesse caso `atom-video-chamada-curso` apenas entrará no formato para caber nesse fundo `background: url('../img/video-mac-bg.png')` se estiver dentro da molécula `molecule-video-chamada` e com a *media query* `@media (min-width: $desktop-size)`.
+
+
+
+
+
 
 
 
