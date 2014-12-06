@@ -1107,7 +1107,11 @@ E mudar quando for `desktop` retirar o `padding-top` de `molecule-video-text`:
     padding-top: 0
 ```
 
+Ótimo agora o `header` já está ajeitadinho.
 
+![tela mostrando o header no mobile](https://cldup.com/TEBjM8jCz0.png)
+![tela mostrando o header no tablet](https://cldup.com/9g49_UKvak.png)
+![tela mostrando o header no desktop](https://cldup.com/EdUUvN26UD.png)
 
 
 
