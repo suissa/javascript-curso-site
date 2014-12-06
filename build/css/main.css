@@ -310,6 +310,23 @@ html {
   font-size: 2rem;
   text-align: center;
 }
+.atom-video-chamada-curso {
+  width: 100%;
+  max-width: 100%;
+  min-height: 16rem;
+}
+@media (min-width: 768px) {
+  .atom-video-chamada-curso,
+.atom-video-chamada-curso {
+    min-height: 30rem;
+  }
+}
+@media (min-width: 1000px) {
+  .atom-video-chamada-curso,
+.atom-video-chamada-curso {
+    min-height: 35rem;
+  }
+}
 .molecule-menu-header {
   list-style: none;
   display: inline-block;

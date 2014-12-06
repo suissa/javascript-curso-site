@@ -781,6 +781,34 @@ $atom-title
 ![Tela com o título primário no mobile](https://cldup.com/eXp2urUvYT.png)
 ![Tela com o título primário no desktop](https://cldup.com/076FJ4wOeV.png)
 
+###Vídeo de chamada
+
+Agora vamos chegar em um ponto crítico do nosso projeto, pois haverá uma grande mudança de layout do `mobile` para o `desktop`.
+
+```
+$atom-video
+  width: 100%
+  max-width: 100%
+  min-height: 16rem
+  @media (min-width: $tablet-size)
+    min-height: 30rem
+  @media (min-width: $desktop-size)
+    min-height: 35rem
+
+.atom-video-chamada-curso
+  @extend $atom-video
+```
+
+
+![Tela mostrando o video no mobile](https://cldup.com/p04NSAcmLE.png)
+![Tela mostrando o video no tablet](https://cldup.com/mjzhKzN3OC.png)
+![Tela mostrando o video no desktop](https://cldup.com/HAtQJcgCQv.png)
+
+
+
+
+
+
 
 ## Para rodar o projeto
 
