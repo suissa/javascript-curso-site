@@ -1,10 +1,16 @@
-$font-default = 'Myriad Pro, Sans serif'
-$font-bold = 'normal'
-$font-size-base = 16px
+@import url(http://fonts.googleapis.com/css?family=Coda)
 
+$font-family = 'Coda', cursive
+$font-bold = normal
+$font-size-base = 16px
+$font-align = left
+
+// Setando a font-size base para o REM
 html
   font-size: $font-size-base
+  font-family: $font-family
 
+// Placeholders
 $atom-link
   text-align: left
   text-decoration: none
@@ -15,6 +21,12 @@ $atom-title
   font-weight: 800
   clear: both
 
+$atom-text
+  font-weight: $font-bold
+  font-family: $font-family
+  text-align: $font-align
+
+// Mixins
 set-font-size(value) {
     font-size: value; /* add PX (or original value) as backup */
 

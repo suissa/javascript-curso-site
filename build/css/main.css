@@ -196,8 +196,10 @@ td,
 th {
   padding: 0;
 }
+@import url("http://fonts.googleapis.com/css?family=Coda");
 html {
   font-size: 16px;
+  font-family: 'Coda', cursive;
 }
 .atom-link-menu {
   text-align: left;
@@ -209,6 +211,11 @@ html {
 .atom-title-secondary {
   font-weight: 800;
   clear: both;
+}
+.atom-text-video-chama {
+  font-weight: normal;
+  font-family: 'Coda', cursive;
+  text-align: left;
 }
 .atom-logo-header {
   -webkit-border-image: 0;
@@ -275,16 +282,16 @@ html {
 .atom-link-menu {
   color: #fff;
   text-transform: uppercase;
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 @media (min-width: 768px) {
   .atom-link-menu {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
   }
 }
 @media (min-width: 1000px) {
   .atom-link-menu {
-    font-size: 0.75rem;
+    font-size: 0.9rem;
     letter-spacing: 0.125rem;
   }
 }
@@ -296,15 +303,22 @@ html {
 .atom-button-matricule-se-small {
   background-color: #6ed5a2;
   color: #fff;
-  font-size: 0.7rem;
-  font-weight: 600;
+  font-size: 0.8rem;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.125rem;
-  padding-top: 6px;
+  letter-spacing: 0.0625rem;
+  padding-top: 8px;
 }
 .atom-button-matricule-se-small {
   width: 138px;
   height: 42px;
+}
+.atom-text-video-chama {
+  color: #a0b2ba;
+  font-size: 1.4rem;
+  margin: 0 auto;
+  text-align: center;
+  width: 60%;
 }
 @import url("http://fonts.googleapis.com/css?family=Coda");
 .atom-title-primary {
@@ -387,6 +401,10 @@ html {
     position: relative;
     top: 40px;
   }
+}
+.molecule-video-text {
+  background-color: #fff;
+  padding-top: 2rem;
 }
 body {
   background-color: #1680a7;

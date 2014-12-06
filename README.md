@@ -956,6 +956,132 @@ Agora sim já está ficando com uma cara mais agradável.
 ![Mostrando nova fonte no mobile](https://cldup.com/JtP6y3sAYJ.png)
 ![Mostrando nova fonte no desktop](https://cldup.com/2U1MA2JUMb.png)
 
+Para deixar com o fundo que tem no layout precisei modificar um pouco a estrutura da `view`:
+
+```
+section.molecule-curso-chamada
+  h1.atom-title-primary
+    | Quer aprender Javascript de VERDADE?
+  div.molecule-video-chamada
+    iframe.atom-video-chamada-curso(src='//www.youtube.com/embed/gS7oD8r9YSY',
+                                    frameborder='0',
+                                    allowfullscreen='')
+  div.molecule-video-text
+    h2.atom-title-secondary Aprenda, capacite-se e destaque-se no mercado.
+    p.atom-text-video-chama
+    | Não perca essa grande oportunidade de se diferenciar no mercado
+    | tendo em vista que o Javascript só cresce cada vez mais.
+```
+
+Separando em 2 blocos pois preciso o contexto/fundo do texto da chamada será diferente do vídeo. Logo precisei criar a molécula `molecule-video-text`:
+
+```
+.molecule-video-text
+  background-color: $branco
+  padding-top: 2rem
+```
+
+Desse jeito nossa tela no `mobile` ficará assim:
+
+![tela mostrando a divisão entre o vídeo e a sessão abaixo no mobile](https://cldup.com/0wgHKBQYbr.png)
+
+
+####Texto de chamada do curso
+
+Vamos no `boson-typo` e criar o *placeholder* `atom-text` e adicionar umas variáveis:
+
+```
+$font-family = 'Myriad Pro, Sans serif'
+$font-bold = 'normal'
+$font-size-base = 16px
+$font-align = 'left'
+
+$atom-text
+  font-weight: $font-bold
+  font-family: $font-family
+  text-align: $font-align
+```
+
+Agora usamos no átomo `atom-text-video-chamada` criando o arquivo `atom-text`:
+
+```
+@import url(http://fonts.googleapis.com/css?family=Coda)
+
+.atom-text-video-chama
+  @extend $atom-text
+  color: $azul-cinza-claro
+  font-family: 'Coda', cursive
+  font-size: 1.4rem
+  margin: 0 auto
+  text-align: center
+  width: 60%
+```
+
+
+#Hora da REFATORAÇÃO
+
+![imagem da Hora da Aventura](http://img2.wikia.nocookie.net/__cb20130504060912/tudosobrehoradeaventura/pt-br/images/8/89/Hora_de_aventura_by_angieeditions09-d5elww0.png)
+
+Percebeu que estamos chamando a mesma *font* em 2 arquivos diferentes? Bom como essa será a *font* padrão do projeto vamos adicionar essa *font*, em `boson-typo`:
+
+```
+@import url(http://fonts.googleapis.com/css?family=Coda)
+
+$font-family = 'Coda', cursive
+$font-bold = normal
+$font-size-base = 16px
+$font-align = left
+
+// Setando a font-size base para o REM
+html
+  font-size: $font-size-base
+  font-family: $font-family
+
+```
+
+Aproveitamos já para setar no `html` o tamanho e a família da *font*, o interessante de usar REM é que para aumentar ou diminuirmos nossos textos basta mudar o tamanho da *font* no `html` e retiramos a chamada de `atom-text` e `atom-title`.
+
+Com isso precisamos dar uma corrigida nos tamanhos das *fonts* do **menu** e do **botão matricule-se**. 
+
+Vamos mudar o tamanho das *fonts* do `atom-link-menu`:
+
+```
+.atom-link-menu
+  @extend $atom-link
+  color: #fff
+  text-transform: uppercase
+  font-size: 1rem
+  // font maior para o tablet por causa do espaço
+  @media (min-width: $tablet-size)
+    font-size: 1.3rem
+    // font menor para o desktop para deixar horizontal
+  @media (min-width: $desktop-size)
+    font-size: 0.9rem
+    letter-spacing: 0.0625*2rem
+```
+
+E do *placeholder* `atom-button-matricule-se` pois como ele é extendido no átomo `atom-button-matricule-se-small` não precisamos mudar em mais nenhum lugar.
+
+```
+$atom-button-matricule-se
+  @extend $atom-button
+  background-color: $verde-claro
+  color: $branco
+  font-size: 0.8rem
+  font-weight: 800
+  text-transform: uppercase
+  letter-spacing: 0.0625*1rem
+  padding-top: 8px
+```
+
+
+
+
+
+
+
+
+
 ## Para rodar o projeto
 
 ### Instalando
