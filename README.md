@@ -1147,7 +1147,7 @@ Vamos voltar para o layout e ver qual o próximo componente a ser estilizado.
 Então vamos criar a estrutura da nossa `view`:
 
 ```
-article
+article.aulas-wrapper
   h3.atom-title-section Confira nossas aulas
   p Essa é a lista das aulas que fazem parte desse curso
   section.molecule-box-curso
@@ -1184,6 +1184,62 @@ article
 Sem nenhuma estilização nossa view estará assim:
 
 ![tela mostrando a listagem das aulas sem estilo](https://cldup.com/frvHn1hLU2.png)
+
+Primeiro vamos colocar a cor correta na seção, no `main.styl` criamos a seguinte regra:
+
+```
+.aulas-wrapper
+  background-color: $azul-cinza-escuro
+```
+
+E vamos mudar a cor de cada caixa que contém a aula.
+
+```
+.molecule-box-curso-wrapper
+  background-color: $branco
+```
+
+Porém como estamos fazendo Mobile-first vamos mudar a aquitetura dessa caixa colocando o vídeo na esquerda e o conteúdo de texto na direita, antes vamos criar o átomo da thumbnail.
+
+```
+.atom-curso-thumb
+  @extend $atom-img
+```
+
+E depois vamos estilizar o componente no contexto dessa molécula sem precisar que modifiquemos nossos átomos.
+
+```
+.molecule-box-curso-wrapper
+  background-color: $branco
+  margin-bottom: 1rem
+  padding-top: 0.2rem
+  clear: both
+  width: 100%
+  max-width: 100%
+  height: 12rem
+  .atom-curso-thumb
+    margin-top: 1rem
+    display: inline-block
+    width: 30%
+    float: left
+  .atom-title-curso,
+  .atom-curso-resume
+    float: left
+    width: 60%
+    margin-left: 1rem
+```
+
+![atenção agora!](https://cldup.com/7bqkq5IjH8.jpg)
+
+Percebeu que os átomos agora só ganham esses estilos específicos pois estão dentros dessa molécula, que nesse contexto adiciona propriedades e/ou subistitui.
+
+Dessa forma quando finalizarmos a criação de todos os átomos não seria mais necessário mexer neles, ainda precisamos refatorar nossos outros códigos, mas essa será a etapa após a finalização da estilização visual.
+
+Trabalhando com o Atomic Design você só precisará modificar futuramente as regras específicas das suas moléculas e organismos, conseguindo re-usar os mesmos átomos sempre.
+
+Além do mais que criando-os genéricamente com variáveis em seus valores é bem simples criar um tema e mudar automaticamente, mas isso ficará para um próximo artigo.
+
+
 
 Repositório oficial: [https://github.com/suissa/javascript-curso-site](https://github.com/suissa/javascript-curso-site)
 
