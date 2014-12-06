@@ -212,7 +212,7 @@ html {
   font-weight: 800;
   clear: both;
 }
-.atom-text-video-chama {
+.atom-text-video-chamada {
   font-weight: normal;
   font-family: 'Coda', cursive;
   text-align: left;
@@ -313,12 +313,22 @@ html {
   width: 138px;
   height: 42px;
 }
-.atom-text-video-chama {
+.atom-text-video-chamada {
   color: #a0b2ba;
   font-size: 1.4rem;
   margin: 0 auto;
   text-align: center;
-  width: 60%;
+  width: 90%;
+}
+@media (min-width: 1000px) {
+  .atom-text-video-chamada {
+    width: 80%;
+  }
+}
+@media (min-width: 1200px) {
+  .atom-text-video-chamada {
+    width: 50%;
+  }
 }
 @import url("http://fonts.googleapis.com/css?family=Coda");
 .atom-title-primary {
@@ -331,6 +341,7 @@ html {
   color: #1680a7;
   font-family: 'Coda', cursive;
   font-size: 2rem;
+  margin-top: 0;
   text-align: center;
 }
 .atom-video-chamada-curso {
@@ -405,6 +416,11 @@ html {
 .molecule-video-text {
   background-color: #fff;
   padding-top: 2rem;
+}
+@media (min-width: 1000px) {
+  .molecule-video-text {
+    padding-top: 0;
+  }
 }
 body {
   background-color: #1680a7;

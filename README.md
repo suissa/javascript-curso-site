@@ -968,7 +968,7 @@ section.molecule-curso-chamada
                                     allowfullscreen='')
   div.molecule-video-text
     h2.atom-title-secondary Aprenda, capacite-se e destaque-se no mercado.
-    p.atom-text-video-chama
+    p.atom-text-video-chamada
     | Não perca essa grande oportunidade de se diferenciar no mercado
     | tendo em vista que o Javascript só cresce cada vez mais.
 ```
@@ -1007,16 +1007,27 @@ Agora usamos no átomo `atom-text-video-chamada` criando o arquivo `atom-text`:
 ```
 @import url(http://fonts.googleapis.com/css?family=Coda)
 
-.atom-text-video-chama
+.atom-text-video-chamada
   @extend $atom-text
   color: $azul-cinza-claro
-  font-family: 'Coda', cursive
   font-size: 1.4rem
   margin: 0 auto
   text-align: center
-  width: 60%
+  width: 90%
+  @media(min-width: $desktop-size)
+    width: 80%
+  @media(min-width: $desktop-medium-size)
+    width: 50%
 ```
 
+Já adicionei o comportamento responsivo como o Atomic Design nos diz, nesse caso o texto não ficará apenas em uma linha quando a tela for muito grande, depois podemos refatorar quando começarmos a etapa do `Template` que é onde setamos a Arquitetura da nossa página utilizando um *grid*.
+
+![Texto mostrado no mobile](https://cldup.com/_XP28AXvA8.png)
+![Texto mostrado no tablet](https://cldup.com/rj8EgulaWL.png)
+![Texto mostrado no desktop](https://cldup.com/7iPyJMPN5j.png)
+![Texto mostrado no desktop maior](https://cldup.com/Vfgk0A3l00.png)
+
+Agora nosso componente do texto já está finalizado com sua responsividade, porém ainda precisamos fazer mais uma coisinha ...
 
 #Hora da REFATORAÇÃO
 
@@ -1074,6 +1085,27 @@ $atom-button-matricule-se
   padding-top: 8px
 ```
 
+Para corrigir o espaçamento entre as seções vamos retirar o margin de cima do `atom-title-secondary`:
+
+```
+.atom-title-secondary
+  @extend $atom-title
+  color: $azul-claro
+  font-family: 'Coda', cursive
+  font-size: 2rem
+  margin-top: 0
+  text-align: center
+```
+
+E mudar quando for `desktop` retirar o `padding-top` de `molecule-video-text`:
+
+```
+.molecule-video-text
+  background-color: $branco
+  padding-top: 2rem
+  @media (min-width: $desktop-size)
+    padding-top: 0
+```
 
 
 
