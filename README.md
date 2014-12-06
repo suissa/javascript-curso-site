@@ -739,6 +739,48 @@ Adicionamos a chamada do nosso módulo em `atoms-default`
 ![Botão matricule-se no menu tablet](https://cldup.com/Ef2d5xhDQK.png)
 ![Botão matricule-se no menu desktop](https://cldup.com/nvHsQuS-rV.png)
 
+Legal finalizamos nosso organismo do header, depois quando modularizarmos melhor nossa `view` ficará mais fácil de ver.
+
+###Main
+
+Vamos iniciar criando uma seção para o vídeo de chamada do curso.
+
+```
+main
+  article
+    h1.atom-title-primary
+      | Quer aprender Javascript de VERDADE?
+    .molecule-video-chamada
+      video.atom-video(src='https://www.youtube.com/watch?v=gS7oD8r9YSY')
+    h2.atom-title-secondary Aprenda, capacite-se e destaque-se no mercado.
+    p
+      | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, 
+      | incidunt! Quis culpa ex, provident nesciunt minima recusandae 
+      | veniam nihil accusantium, id deleniti doloremque ut sit iste 
+      | officiis commodi asperiores laudantium.
+```
+
+Encapsulamos em um article seguindo a [orientação do HTML5](http://alistapart.com/article/previewofhtml5), vamos iniciar estilizando o `atom-title-primary`:
+
+```
+.atom-title-primary
+  @extend $atom-title
+  color: $branco
+  font-size: 2rem
+  text-align: center
+```
+
+Em `bosons/boson-typo` criamos o `$atom-title`:
+
+```
+$atom-title
+  font-weight: 800
+  clear: both
+```
+
+![Tela com o título primário no mobile](https://cldup.com/eXp2urUvYT.png)
+![Tela com o título primário no desktop](https://cldup.com/076FJ4wOeV.png)
+
 
 ## Para rodar o projeto
 
