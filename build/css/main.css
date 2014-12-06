@@ -205,7 +205,8 @@ html {
   font-size: 1em;
   color: #6ed5a2;
 }
-.atom-title-primary {
+.atom-title-primary,
+.atom-title-secondary {
   font-weight: 800;
   clear: both;
 }
@@ -305,8 +306,16 @@ html {
   width: 138px;
   height: 42px;
 }
+@import url("http://fonts.googleapis.com/css?family=Coda");
 .atom-title-primary {
   color: #fff;
+  font-family: 'Coda', cursive;
+  font-size: 2.8rem;
+  text-align: center;
+}
+.atom-title-secondary {
+  color: #1680a7;
+  font-family: 'Coda', cursive;
   font-size: 2rem;
   text-align: center;
 }
@@ -354,6 +363,18 @@ html {
   padding: 0.5em 0.6em;
   border: none;
 }
+.molecule-curso-chamada {
+  padding-top: 1rem;
+  background-color: #1680a7;
+}
+@media (min-width: 1000px) {
+  .molecule-curso-chamada {
+    background: url("../img/section-video-bg.jpg") repeat-x top left;
+  }
+}
+.molecule-video-chamada {
+  background-color: #fff;
+}
 @media (min-width: 1000px) {
   .molecule-video-chamada {
     background: url("../img/video-mac-bg.png") no-repeat top center;
@@ -368,8 +389,12 @@ html {
   }
 }
 body {
-  background-color: #4161af;
+  background-color: #1680a7;
 }
 header {
-  height: 5rem;
+  height: 7.4rem;
+}
+main {
+  background-color: #fff;
+  padding-bottom: 4em;
 }

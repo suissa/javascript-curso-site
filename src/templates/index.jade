@@ -6,6 +6,7 @@ html
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
     meta(name='description' content='meta desc')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet', type='text/css', href='http://fonts.googleapis.com/css?family=Coda')
     link(rel='stylesheet', type='text/css', href='css/main.css')
   body
     header(role="navigation" aria-label="Menu Principal")
@@ -42,12 +43,13 @@ html
 
     main
       article
-        h1.atom-title-primary
-          | Quer aprender Javascript de VERDADE?
-        section.molecule-video-chamada
-          iframe.atom-video-chamada-curso(src='//www.youtube.com/embed/gS7oD8r9YSY',
-                                          frameborder='0',
-                                          allowfullscreen='')
+        div.molecule-curso-chamada
+          h1.atom-title-primary
+            | Quer aprender Javascript de VERDADE?
+          section.molecule-video-chamada
+            iframe.atom-video-chamada-curso(src='//www.youtube.com/embed/gS7oD8r9YSY',
+                                            frameborder='0',
+                                            allowfullscreen='')
 
 
         h2.atom-title-secondary Aprenda, capacite-se e destaque-se no mercado.

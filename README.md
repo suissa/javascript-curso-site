@@ -868,12 +868,93 @@ Legal porém nós estamos adicionando regras específicas para o vídeo, porém 
 
 Nesse caso `atom-video-chamada-curso` apenas entrará no formato para caber nesse fundo `background: url('../img/video-mac-bg.png')` se estiver dentro da molécula `molecule-video-chamada` e com a *media query* `@media (min-width: $desktop-size)`.
 
+**Nesse momento percebi que estava usando um azul `#4161af` setado no `background-color` do html, mudei para `$azul-claro` para utilizar do nosso padrão setado nas variáveis, por isso o fundo será diferente daqui para frente.**
+
+Agora para finalizar a parte do vídeo sua sessão possui um fundo escuro e continua com um fundo branco. Adicionei as seguintes regras no `main.styl`, depois precisamos refatorar:
+
+```
+body
+  background-color: $azul-claro
+header
+  height: 7.4rem
+main
+  background-color: $branco
+  padding-bottom: 4em
+```
+
+E refatorei a `view`:
+
+```
+main
+  article
+    div.molecule-curso-chamada
+      h1.atom-title-primary
+        | Quer aprender Javascript de VERDADE?
+      section.molecule-video-chamada
+        iframe.atom-video-chamada-curso(src='//www.youtube.com/embed/gS7oD8r9YSY',
+                                        frameborder='0',
+                                        allowfullscreen='')
+
+
+    h2.atom-title-secondary Aprenda, capacite-se e destaque-se no mercado.
+    p
+      | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, 
+      | incidunt! Quis culpa ex, provident nesciunt minima recusandae 
+      | veniam nihil accusantium, id deleniti doloremque ut sit iste 
+      | officiis commodi asperiores laudantium.
+```
 
 
 
+###Título secundário
+
+Vamos iniciar a criação do `atom-title-secondary`.
+
+```
+.atom-title-secondary
+  @extend $atom-title
+  color: $azul-claro
+  text-align: center
+```
+
+Perceba que estamos re-usando o *placeholder* `atom-title` e só modificamos sua cor e seu alinhamento.
+
+![Tela mostrando o título secundário no mobile](https://cldup.com/_D6tLyQdKY.png)
+![Tela mostrando o título secundário no desktop](https://cldup.com/hZuMbfXQRA.png)
+
+Antes de continuarmos vamos pegar uma font diferente no [Google Fonts](http://www.google.com/fonts)
+
+Alterando o arquivo `atom-title` deixamos ele assim:
+
+```
+@import url(http://fonts.googleapis.com/css?family=Coda)
+
+.atom-title-primary
+  @extend $atom-title
+  color: $branco
+  font-family: 'Coda', cursive
+  font-size: 2.8rem
+  text-align: center
+
+.atom-title-secondary
+  @extend $atom-title
+  color: $azul-claro
+  font-family: 'Coda', cursive
+  font-size: 2rem
+  text-align: center
+```
+
+*ps: não esquecer de chamar no index.jade*
+
+```
+link(rel='stylesheet', type='text/css', href='http://fonts.googleapis.com/css?family=Coda')
+```
 
 
+Agora sim já está ficando com uma cara mais agradável.
 
+![Mostrando nova fonte no mobile](https://cldup.com/JtP6y3sAYJ.png)
+![Mostrando nova fonte no desktop](https://cldup.com/2U1MA2JUMb.png)
 
 ## Para rodar o projeto
 
