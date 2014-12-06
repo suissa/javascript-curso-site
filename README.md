@@ -104,7 +104,9 @@ $color-text = $azul-cinza-medio
 $color-link = $verde-claro
 ```
 
-Eu dei nome as cores para ficar mais facilmente indentificáveis e facilmente subistituídas. Após as cores criei o arquivo dos bósons de tipografia em `bosons/boson-typo.styl`
+Para criarmos variárveis no Stylus basta definir o nome depois `=` e o valor, por definição usamos o `$` como prefixo padrão, [leia mais sobre o porquê usar $](https://github.com/LearnBoost/stylus/wiki/1.0.0#what-to-change-in-syntax).
+
+Nomeei as cores para ficar mais facilmente indentificáveis e facilmente subistituídas. Após as cores criei o arquivo dos bósons de tipografia em `bosons/boson-typo.styl`
 
 ```
 $font-default = 'Myriad Pro, Sans serif'
