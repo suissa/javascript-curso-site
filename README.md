@@ -1,6 +1,15 @@
 ![Imagem sobre mobile first](http://designshack.net/wp-content/uploads/ds-mobilefirst-2.jpg)
 
+Bom estou escrevendo esse passo-a-passo pois me foi pedido via inbox do Facebook para que eu mostrasse como eu iria programar o site que estou desenvolvendo para um curso de Javascript que na verdade serão vários mini-cursos podendo ter outro professores.
+
+Então achei uma boa oportunidade para colocar em prática alguns estudos e experimentar coisas novas como: Stylus e Mobile-first. Juntando tudo com [Atomic Design](http://nomadev.com.br/atomic-design-por-que-usar/), esse post vai ficar gigante e muito provavelmente virará um mini-curso e uma palestra também, até porque de nada vale aprender se não ensinar, imho.
+
 ##Analisando
+
+Bom vamos ver como é o layout com o qual vamos trabalhar, vamos nos basear nele pois coisas podem ser modificadas durante o desenvolvimento.
+
+![Layout a ser utilizado no estudo](https://cldup.com/Deq7yQ11XI.jpg)
+
 
 Primeiro escrevi uma lista dos componentes e a estrutura do layout mas nada de HTML ou CSS.
 
