@@ -575,6 +575,128 @@ Com isso nosso menu ficará assim:
 ![Tela mostrando menu aberto no tablet](https://cldup.com/BCtXoL3z4S.png)
 ![Tela mostrando menu aberto no desktop](https://cldup.com/6TLeI7Snmf.png)
 
+**Refatoração**
+
+Antes de continuar vamos criar o arquivo `atoms/index.styl` com o seguinte código:
+
+```
+@import "atoms/atoms-default"
+```
+
+Dessa forma o `main` sempre chamará apenas um `index` de cada pasta.
+
+```
+@import "bosons/index"
+@import "atoms/index"
+@import "molecules/index"
+```
+
+E em `atoms/atoms-default` deixei a chamada para os 2 arquivos em separado, pois eles já estavam ficando muito grandes juntos.
+
+```
+@import 'atoms/atoms-img'
+@import 'atoms/atoms-menu'
+```
+
+`atoms/atoms-img`:
+
+```
+$atom-img
+  border-image: 0
+  margin: 0 auto
+  padding: 0
+  display: block
+  max-width: 100%
+  margin-left: 20px
+  margin-top: 8px
+  width: 80%
+  // tamanho padrão p/ telas acima do mobile
+  @media (min-width: 600px)
+    width: 200px
+
+// configurações específicas do logo
+atom-logo-header-medias()
+ @media (min-width: 600px)
+   width: 244px
+
+.atom-logo-header
+  atom-logo-header-medias()
+  @extend $atom-img
+  width: 40%
+  display: inline-block
+  float: left
+```
+
+`atoms/atoms-menu`:
+
+```
+.atom-menu-handle
+  background: url('../img/icon-png2x.png') no-repeat top right
+  clear: both
+  cursor: pointer
+  float: right
+  margin: 0.6rem 0.6rem 0 1rem
+  width: 36px
+  height: 24px
+  position: relative
+  @media (min-width: 1000px)
+    display: none
+
+.atom-menu-checkbox
+  display: none
+
+.atom-menu-checkbox + .molecule-menu
+  .atom-item-menu
+    @media (min-width: 1000px)
+      display: inline
+      visibility: visible
+
+.atom-menu-checkbox:checked + .molecule-menu
+  .molecule-menu-header
+    max-height: 300px
+    clear: both
+  .atom-item-menu
+    visibility: visible
+
+.atom-item-menu
+  text-align: right
+// Menu Desktop
+
+.atom-link-menu
+  @extend $atom-link
+  color: #fff
+  text-transform: uppercase
+  font-size: 0.8rem
+  // font maior para o tablet por causa do espaço
+  @media (min-width: 800px)
+    font-size: 1.1rem
+    // font menor para o desktop para deixar horizontal
+  @media (min-width: 1000px)
+    font-size: 0.75rem
+    letter-spacing: 0.0625*2rem
+```
+
+E o `bosons/index` fica:
+
+```
+@import "bosons/boson-colors"
+@import "bosons/boson-responsive"
+@import "bosons/boson-typo"
+```
+
+Pronto agora podemos continuar.
+
+![Homer feliz porque podemos continuar](http://perlbal.hi-pi.com/blog-images/410584/gd/134662167782/Ufa.jpg)
+
+
+
+####Botão matricule-se
+
+Vamos criar seus átomos.
+
+
+
+
 ## Getting Started
 
 ### Installation
