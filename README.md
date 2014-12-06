@@ -310,9 +310,9 @@ atom-logo-header-medias()
 
 O resultado é esse:
 
-![Imagem com tela maior de 600px](https://cldup.com/cqzTGhvlbd.png)
 ![Imagem com tela menor de 600px](https://cldup.com/hq2QlSU53W.png)
-*\*adicionei um fundo pois o logo tem muito branco*
+![Imagem com tela maior de 600px](https://cldup.com/cqzTGhvlbd.png)
+**adicionei um fundo pois o logo tem muito branco*
 
 Infelizmente esse código duplica nosso CSS, porém infelizmente para re-usar um código em uma media query você precisa definir ele dentro dela. Existem formas melhores de fazer isso, quando refatoraremos essa parte.
 
@@ -1137,6 +1137,53 @@ E mudar quando for `desktop` retirar o `padding-top` de `molecule-video-text`:
 ![tela mostrando o header no tablet](https://cldup.com/9g49_UKvak.png)
 ![tela mostrando o header no desktop](https://cldup.com/EdUUvN26UD.png)
 
+
+![Voltemos ao assunto por favor](http://estragafilmes.blog.br/wp-content/uploads/2011/06/DE-VOLTA-PARA-O-FUTURO.jpg)
+
+Vamos voltar para o layout e ver qual o próximo componente a ser estilizado.
+
+![Parte do layout que mostra a listagem dos cursos](https://cldup.com/kaAk0gAfVr.jpg)
+
+Então vamos criar a estrutura da nossa `view`:
+
+```
+article
+  h3.atom-title-section Confira nossas aulas
+  p Essa é a lista das aulas que fazem parte desse curso
+  section.molecule-box-curso
+    div.molecule-box-curso-wrapper
+      img.atom-curso-thumb( src='img/thumb-video-aula.jpg', 
+                            alt='Thumbnail do vídeo da aula desse curso')
+      h4.atom-title-curso
+        | Nome do Curso
+      p.atom-curso-resume
+        | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, 
+        | commodi, officia...
+    div.molecule-box-curso-wrapper
+      img.atom-curso-thumb( src='img/thumb-video-aula.jpg', 
+                            alt='Thumbnail do vídeo da aula desse curso')
+      h4.atom-title-curso
+        | Nome do Curso
+      p.atom-curso-resume
+        | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, 
+        | commodi, officia...
+    div.molecule-box-curso-wrapper
+      img.atom-curso-thumb( src='img/thumb-video-aula.jpg', 
+                            alt='Thumbnail do vídeo da aula desse curso')
+      h4.atom-title-curso
+        | Nome do Curso
+      p.atom-curso-resume
+        | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, 
+        | commodi, officia...
+    div.molecule-box-curso-wrapper
+      button.atom-button-ver-mais ver mais
+```
+
+*Lembrando que ela pode ser refatorada quando necessário.*
+
+Sem nenhuma estilização nossa view estará assim:
+
+![tela mostrando a listagem das aulas sem estilo](https://cldup.com/frvHn1hLU2.png)
 
 Repositório oficial: [https://github.com/suissa/javascript-curso-site](https://github.com/suissa/javascript-curso-site)
 
