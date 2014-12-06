@@ -188,6 +188,9 @@ npm install rupture
 
 ###Header
 
+![Imagem do header do layout usado](https://cldup.com/crlHJwsVrE.jpg)
+
+
 Vamos iniciar o desenvolvimento visual a partir dos componentes, então vamos começar pelo `header` que será um organismo pois agregará átomos e moléculas.
 
 ```
@@ -756,7 +759,11 @@ Legal finalizamos nosso organismo do header, depois quando modularizarmos melhor
 
 ###Main
 
+![Imagem mostrando o main do layout](https://cldup.com/crlHJwsVrE.jpg)
+
 Vamos iniciar criando uma seção para o vídeo de chamada do curso.
+
+![Imagem mostrando a seção da chamada do vídeo](https://cldup.com/UYtqmRxICy.jpg)
 
 ```
 main
@@ -795,6 +802,8 @@ $atom-title
 ![Tela com o título primário no desktop](https://cldup.com/076FJ4wOeV.png)
 
 ###Vídeo de chamada
+
+![Imagem mostrando o vídeo e o fundo preto](https://cldup.com/yzTncJr2zA.jpg)
 
 Agora vamos chegar em um ponto crítico do nosso projeto, pois haverá uma grande mudança de layout do `mobile` para o `desktop`.
 
@@ -1127,7 +1136,7 @@ E mudar quando for `desktop` retirar o `padding-top` de `molecule-video-text`:
 ![tela mostrando o header no desktop](https://cldup.com/EdUUvN26UD.png)
 
 
-
+Repositório oficial: [https://github.com/suissa/javascript-curso-site](https://github.com/suissa/javascript-curso-site)
 
 
 
