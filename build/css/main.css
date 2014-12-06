@@ -234,18 +234,29 @@ th {
   background: url("../img/icon-png2x.png") no-repeat top right;
   clear: both;
   cursor: pointer;
-  display: inline-block;
   float: right;
-  margin: 0.6rem 0.6rem 0 0;
+  margin: 0.6rem 0.6rem 0 1rem;
   width: 36px;
   height: 24px;
   position: relative;
 }
+@media (min-width: 1000px) {
+  .atom-menu-handle {
+    display: none;
+  }
+}
 .atom-menu-checkbox {
   display: none;
 }
+@media (min-width: 1000px) {
+  .atom-menu-checkbox + .molecule-menu .atom-item-menu {
+    display: inline;
+    visibility: visible;
+  }
+}
 .atom-menu-checkbox:checked + .molecule-menu .molecule-menu-header {
   max-height: 300px;
+  clear: both;
 }
 .atom-menu-checkbox:checked + .molecule-menu .atom-item-menu {
   visibility: visible;
@@ -256,6 +267,18 @@ th {
 .atom-link-menu {
   color: #fff;
   text-transform: uppercase;
+  font-size: 0.8rem;
+}
+@media (min-width: 800px) {
+  .atom-link-menu {
+    font-size: 1.1rem;
+  }
+}
+@media (min-width: 1000px) {
+  .atom-link-menu {
+    font-size: 0.75rem;
+    letter-spacing: 0.125rem;
+  }
 }
 .molecule-menu-header {
   list-style: none;
@@ -268,11 +291,22 @@ th {
   display: inline-block;
   float: right;
 }
-.molecule-menu .molecule-menu-header {
+@media (min-width: 1000px) {
+  .molecule-menu {
+    max-width: 70%;
+    margin-top: 1.8rem;
+  }
+}
+.molecule-menu-header {
   max-height: 0;
   overflow: hidden;
 }
-.molecule-menu .atom-item-menu {
+@media (min-width: 1000px) {
+  .molecule-menu-header {
+    overflow: visible;
+  }
+}
+.atom-item-menu {
   visibility: hidden;
   display: block;
   padding: 0.5em 0.6em;

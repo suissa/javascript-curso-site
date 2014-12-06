@@ -376,7 +376,7 @@ Como estamos fazendo **mobile-first** vamos ter que criar um menu escondido e mo
       display: none
 ```
 
-E nossa `view` ficará:
+Nossa `view` poderia ficar assim:
 
 ```
 ul.molecule-menu-header
@@ -450,6 +450,7 @@ E agora vamos criar a regra quando o usuário clickar/tocar no ícone para mostr
 .atom-menu-checkbox:checked + .molecule-menu
   .molecule-menu-header
     max-height: 300px;
+    clear: both
   .atom-item-menu
     visibility: visible;
 ```
@@ -498,6 +499,81 @@ Como não sou manjador quando em proporem melhorias eu atualizo aqui.
 
 ![Tela mostrando apenas o ícone e o menu escondido](https://cldup.com/thsEp8hnKu.png)
 ![Tela mostrando o ícone e o menu visível](https://cldup.com/b_PJj5QWvl.png)
+
+No `tablet` vamos deixar a mesma identidade, só mudaremos para o `desktop` então vamos começar a refatorar:
+
+**Próximo passo**
+
+Vamos deixar o menu na horizontal quando passar do `tablet` para o `desktop`, para isso vamos refatorar o `atom-link-menu` para adicionar suas responsividades:
+
+```
+.atom-link-menu
+  @extend $atom-link
+  color: #fff
+  text-transform: uppercase
+  font-size: 0.8rem
+  // font maior para o tablet por causa do espaço
+  @media (min-width: 800px)
+    font-size: 1.1rem
+    // font menor para o desktop para deixar horizontal
+  @media (min-width: 1000px)
+    font-size: 0.75rem
+    letter-spacing: 0.0625*2rem
+```
+
+Depois precisamos deixar o menu visível e os links na horizontal, caso o tamanho da tela for para desktop.
+
+```
+.atom-menu-checkbox + .molecule-menu
+  .atom-item-menu
+    @media (min-width: 1000px)
+      display: inline
+      visibility: visible
+```
+
+Não podemos esquecer de esconder o ícone do menu quando for desktop:
+
+```
+.atom-menu-handle
+  background: url('../img/icon-png2x.png') no-repeat top right
+  clear: both
+  cursor: pointer
+  float: right
+  margin: 0.6rem 0.6rem 0 1rem
+  width: 36px
+  height: 24px
+  position: relative
+  @media (min-width: 1000px)
+    display: none
+```
+
+Precisamos acertar algumas coisas na `molecule-menu` quando for desktop:
+
+```
+.molecule-menu
+  max-width: 40%
+  display: inline-block
+  float: right
+    @media (min-width: 1000px)
+      max-width: 70%
+      margin-top: 1.8rem
+  .molecule-menu-header
+    max-height: 0
+    overflow: hidden
+    @media (min-width: 1000px)
+      overflow: visible
+  .atom-item-menu
+    visibility: hidden
+    display: block
+    padding: 0.5em 0.6em
+    border: none
+```
+
+Com isso nosso menu ficará assim:
+
+![Tela mostrando menu aberto no mobile](https://cldup.com/Edr1xeBYdY.thumb.png)
+![Tela mostrando menu aberto no tablet](https://cldup.com/BCtXoL3z4S.png)
+![Tela mostrando menu aberto no desktop](https://cldup.com/6TLeI7Snmf.png)
 
 ## Getting Started
 
