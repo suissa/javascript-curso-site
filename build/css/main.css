@@ -322,7 +322,7 @@ html {
 .atom-video-chamada-curso {
   width: 100%;
   max-width: 100%;
-  min-height: 16rem;
+  min-height: 340px;
   display: block;
 }
 @media (min-width: 768px) {
