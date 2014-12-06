@@ -740,17 +740,19 @@ Adicionamos a chamada do nosso módulo em `atoms-default`
 ![Botão matricule-se no menu desktop](https://cldup.com/nvHsQuS-rV.png)
 
 
-## Getting Started
+## Para rodar o projeto
 
-### Installation
+### Instalando
 
-First of all, install the dependencies to run this boilerplate.
+Além obviamente do Node.js precisará do Gulp.
 
 - [NodeJS](http://nodejs.org/)
 - [GulpJS](http://gulpjs.com/)
 
 
 ```sh
+npm install -g gulp
+
 # Clone this repository
 $ git clone git://github.com/willianjusten/Fast.git new_project
 $ cd new_project
@@ -761,7 +763,7 @@ $ npm install
 
 With the commands above, you have everything to start.
 
-### Folders and Files
+### Pastas e Arquivos
 
 ```sh
 new_project -
@@ -784,7 +786,7 @@ new_project -
 		/unit
 ```
 
-### Tasks
+### Tarefas
 
 - `gulp`: Initialize watch for changes and a server(localhost:8080)
 - `gulp js`: execute js files
