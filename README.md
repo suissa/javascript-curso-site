@@ -1,3 +1,7 @@
+![Imagem sobre mobile first](http://designshack.net/wp-content/uploads/ds-mobilefirst-2.jpg)
+
+##Analisando
+
 Primeiro escrevi uma lista dos componentes e a estrutura do layout mas nada de HTML ou CSS.
 
 ```
