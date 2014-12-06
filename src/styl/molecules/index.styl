@@ -8,16 +8,21 @@
   max-width: 40%
   display: inline-block
   float: right
-    @media (min-width: 1000px)
+    @media (min-width: $desktop-size)
       max-width: 70%
       margin-top: 1.8rem
   .molecule-menu-header
     max-height: 0
     overflow: hidden
-    @media (min-width: 1000px)
+    @media (min-width: $desktop-size)
       overflow: visible
   .atom-item-menu
     visibility: hidden
     display: block
     padding: 0.5em 0.6em
     border: none
+
+.molecule-video-chamada
+  @media (min-width: $desktop-size)
+    background: url('../img/video-mac-bg.png') no-repeat top center
+    height: 500px

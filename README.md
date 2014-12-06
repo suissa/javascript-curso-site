@@ -804,8 +804,52 @@ $atom-video
 ![Tela mostrando o video no tablet](https://cldup.com/mjzhKzN3OC.png)
 ![Tela mostrando o video no desktop](https://cldup.com/HAtQJcgCQv.png)
 
+Porém no layout o vídeo fica dentro de um notebook, no `desktop`, que precisamos usar de fundo para esse vídeo.
+
+![](https://cldup.com/dvYuOZspaT.png)
+
+Refatorando nossa view:
+
+```
+section.molecule-video-chamada
+  iframe.atom-video-chamada-curso(src='//www.youtube.com/embed/gS7oD8r9YSY',
+                                  frameborder='0',
+                                  allowfullscreen='')
+```
 
 
+E nosso visual:
+
+```
+$atom-video
+  width: 100%
+  max-width: 100%
+  min-height: 16rem
+  display: block
+  @media (min-width: $tablet-size)
+    min-height: 30rem
+  @media (min-width: $desktop-size)
+    min-height: 340px
+    width: 550px
+    margin: 0 auto
+    position: relative
+    top: 40px
+
+.atom-video-chamada-curso
+  @extend $atom-video
+
+```
+
+E precisamos adicionar o fundo na nossa `section` para que o vídeo fique inserido nele.
+
+```
+.molecule-video-chamada
+  @media (min-width: $desktop-size)
+    background: url('../img/video-mac-bg.png') no-repeat top center
+    height: 500px
+```
+
+![Tela mostrando o vídeo inserido em um notebook quando estiver no desktop](https://cldup.com/6zcl__9v9y.png)
 
 
 
